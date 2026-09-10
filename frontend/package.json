@@ -1,0 +1,11 @@
+{
+  "name": "plant-disease-detection-frontend-app",
+  "version": "1.0.0",
+  "description": "AgriVision AI Frontend",
+  "scripts": {
+    "start": "node ../../server.js"
+  },
+  "keywords": ["plant-disease-detection", "agrivision"],
+  "author": "",
+  "license": "ISC"
+}

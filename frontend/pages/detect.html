@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Plant  Disease Detection </title>
+
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/voice-assistant.css">
+
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+    <div class="logo">
+        <img src="../assets/images/logo.png" alt="AgriVision Logo">
+        AgriVision <span>AI</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="detect.html" class="active">
+            Detect
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+</header>
+
+<main class="detection-page">
+
+
+<!-- Page Heading -->
+
+<section class="page-heading">
+
+    <p>
+        🧠 DNN PLANT ANALYSIS
+    </p>
+
+    <h1>
+        Detect Plant Disease
+    </h1>
+
+    <span>
+        Upload a clear image of a plant leaf and let
+        our Deep Neural Network analyze it.
+    </span>
+
+</section>
+
+
+<!-- Detection Area -->
+
+<section class="detection-container">
+
+
+    <div class="upload-card">
+
+
+        <div class="upload-header">
+
+            <div>
+
+                <p class="label">
+                    IMAGE ANALYSIS
+                </p>
+
+                <h2>
+                    Upload Plant Image
+                </h2>
+
+            </div>
+
+            <div class="ai-symbol">
+                🧠
+            </div>
+
+        </div>
+
+
+        <!-- Dataset Sample Quick Picker -->
+        <div class="dataset-picker-section">
+            <p class="picker-title">
+                ⚡ Select Sample Image directly from Dataset:
+            </p>
+            <div class="dataset-grid">
+                <button type="button" class="dataset-sample-btn" data-plant="Tomato" data-disease="Early_Blight" data-img="../assets/dataset_samples/tomato_early.jpg">
+                    🍅 Tomato Early Blight
+                </button>
+                <button type="button" class="dataset-sample-btn" data-plant="Tomato" data-disease="Late_Blight" data-img="../assets/dataset_samples/tomato_late.jpg">
+                    🍅 Tomato Late Blight
+                </button>
+                <button type="button" class="dataset-sample-btn" data-plant="Tomato" data-disease="Healthy" data-img="../assets/dataset_samples/tomato_healthy.jpg">
+                    🍅 Tomato Bright / Healthy
+                </button>
+                <button type="button" class="dataset-sample-btn" data-plant="Potato" data-disease="Early_Blight" data-img="../assets/dataset_samples/potato_early.jpg">
+                    🥔 Potato Early Blight
+                </button>
+                <button type="button" class="dataset-sample-btn" data-plant="Potato" data-disease="Late_Blight" data-img="../assets/dataset_samples/potato_late.jpg">
+                    🥔 Potato Late Blight
+                </button>
+                <button type="button" class="dataset-sample-btn" data-plant="Potato" data-disease="Healthy" data-img="../assets/dataset_samples/potato_healthy.jpg">
+                    🥔 Potato Bright / Healthy
+                </button>
+            </div>
+        </div>
+
+        <!-- Upload Box -->
+
+        <div
+            class="upload-area"
+            id="uploadArea"
+        >
+
+            <div class="upload-icon">
+                🌿
+            </div>
+
+            <h3>
+                Drop your plant image here
+            </h3>
+
+            <p>
+                or click to browse from your device
+            </p>
+
+            <span>
+                JPG, JPEG or PNG • Maximum 10 MB
+            </span>
+
+
+            <input
+                type="file"
+                id="plantImage"
+                accept="image/png,image/jpeg,image/jpg"
+                hidden
+            >
+
+
+            <button
+                type="button"
+                id="browseButton"
+                class="browse-button"
+            >
+
+                📁 Choose Image
+
+            </button>
+
+        </div>
+
+
+        <!-- Image Preview -->
+
+        <div
+            class="preview-container"
+            id="previewContainer"
+        >
+
+            <div class="preview-header">
+
+                <strong>
+                    Selected Image
+                </strong>
+
+                <button
+                    id="removeImage"
+                    type="button"
+                >
+                    ✕ Remove
+                </button>
+
+            </div>
+
+
+            <div class="image-wrapper">
+
+                <img
+                    id="imagePreview"
+                    src=""
+                    alt="Plant Preview"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- Progress Bar -->
+        <div id="progressContainer" class="progress-container" style="display: none; margin-top: 20px;">
+            <div class="progress-bar-label" style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; color: #8d9c92;">
+                <span id="progressStatus">Analyzing leaf patterns...</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg" style="width: 100%; height: 8px; background: #0b2413; border-radius: 4px; overflow: hidden; border: 1px solid #1d4128;">
+                <div id="progressBarFill" class="progress-bar-fill" style="width: 0%; height: 100%; background: #7cff9b; transition: width 0.1s ease; border-radius: 4px;"></div>
+            </div>
+        </div>
+
+        <!-- Analyze Button -->
+
+        <button
+            id="analyzeButton"
+            class="analyze-button"
+            disabled
+        >
+
+            🧠 Analyze with DNN
+
+        </button>
+
+
+
+        <p
+            id="uploadMessage"
+            class="upload-message"
+        ></p>
+
+
+    </div>
+
+
+    <!-- AI Information -->
+
+    <aside class="info-card">
+
+
+        <div class="ai-avatar">
+            🤖
+        </div>
+
+        <p class="label">
+            AGRIVISION AI
+        </p>
+
+        <h2>
+            Intelligent Plant Analysis
+        </h2>
+
+        <p class="description">
+            Our Deep Neural Network analyzes visual
+            patterns in the plant leaf to identify
+            possible diseases.
+        </p>
+
+
+        <div class="process">
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <div>
+
+                    <strong>
+                        Image Processing
+                    </strong>
+
+                    <p>
+                        Your image is prepared for
+                        DNN analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <div>
+
+                    <strong>
+                        DNN Prediction
+                    </strong>
+
+                    <p>
+                        The trained model analyzes
+                        leaf patterns.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <div>
+
+                    <strong>
+                        AI Solution
+                    </strong>
+
+                    <p>
+                        Get disease information and
+                        recommended action.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="privacy">
+
+            🔒
+            <span>
+                Your image is securely processed
+                for disease detection.
+            </span>
+
+        </div>
+
+    </aside>
+
+
+</section>
+
+
+<!-- Supported Plants -->
+
+<section class="supported">
+
+    <p class="label">
+        SUPPORTED PLANT ANALYSIS
+    </p>
+
+    <h2>
+        Analyze Different Plant Types
+    </h2>
+
+
+    <div class="plant-list">
+
+        <div class="plant" data-plant="Tomato" tabindex="0">
+            🍅
+            <span>Tomato</span>
+        </div>
+
+        <div class="plant" data-plant="Potato" tabindex="0">
+            🥔
+            <span>Potato</span>
+        </div>
+
+        <div class="plant" data-plant="Apple" tabindex="0">
+            🍎
+            <span>Apple</span>
+        </div>
+
+        <div class="plant" data-plant="Corn" tabindex="0">
+            🌽
+            <span>Corn</span>
+        </div>
+
+        <div class="plant" data-plant="Grape" tabindex="0">
+            🍇
+            <span>Grape</span>
+        </div>
+
+        <div class="plant" data-plant="Peach" tabindex="0">
+            🍑
+            <span>Peach</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+<footer>
+
+
+<p>
+    © 2026
+    <span>AgriVision AI</span>
+    | Plant Disease Detection Using Deep Neural Networks
+</p>
+
+
+</footer>
+
+<script src="../js/voice-assistant.js"></script>
+<script src="../js/detection.js"></script>
+
+</body>
+
+
+</html>

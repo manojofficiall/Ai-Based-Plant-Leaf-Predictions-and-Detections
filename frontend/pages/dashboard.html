@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | AgriVision AI</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css?v=4">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="AgriVision Logo">
+                AgriVision <span>AI</span>
+            </div>
+
+            <div class="nav-links">
+
+                <a href="dashboard.html" class="active">
+                    Dashboard
+                </a>
+
+                <a href="detect.html">
+                    Detect
+                </a>
+
+
+                <button id="logoutButton">
+                    Logout
+                </button>
+
+            </div>
+
+        </nav>
+
+
+    </header>
+
+    <main class="dashboard">
+
+
+        <!-- Welcome Section -->
+
+        <section class="welcome">
+
+            <div>
+
+                <p class="small-title">
+                    AI PLANT HEALTH SYSTEM
+                </p>
+
+                <h1>
+                    Welcome back, <span id="userName">
+                        Plant Doctor
+                    </span> 🌱
+                </h1>
+
+                <p>
+                    Monitor plant health, analyze leaf images
+                    and detect diseases using our Deep Neural
+                    Network.
+                </p>
+
+            </div>
+
+
+            <a href="detect.html" class="detect-button">
+
+                🔍 New Detection
+
+            </a>
+
+        </section>
+
+
+        <!-- Model Status -->
+
+        <section class="model-status">
+
+            <div class="status-indicator"></div>
+
+            <div>
+
+                <strong>
+                    DNN Model Online
+                </strong>
+
+                <p>
+                    Plant disease detection system is ready
+                    for analysis.
+                </p>
+
+            </div>
+
+            <div class="model-info">
+
+                <span>
+                    Model
+                </span>
+
+                <strong>
+                    Deep Neural Network
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="statistics">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔬
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Scans
+                    </p>
+
+                    <h2 id="totalScans">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🦠
+                </div>
+
+                <div>
+
+                    <p>
+                        Diseases Detected
+                    </p>
+
+                    <h2 id="diseasesDetected">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <p>
+                        Average Confidence
+                    </p>
+
+                    <h2 id="confidence">
+                        0%
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🌿
+                </div>
+
+                <div>
+
+                    <p>
+                        Healthy Plants
+                    </p>
+
+                    <h2 id="healthyPlants">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Main Dashboard -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Quick Detection -->
+
+            <div class="dashboard-card detection-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-label">
+                            AI ANALYSIS
+                        </p>
+
+                        <h2>
+                            Detect Plant Disease
+                        </h2>
+
+                    </div>
+
+                    <span class="card-icon">
+                        🧠
+                    </span>
+
+                </div>
+
+
+                <p>
+                    Upload an image of a plant leaf and let
+                    the DNN model identify possible diseases.
+                </p>
+
+
+                <div class="detection-options">
+
+                    <div>
+                        📷
+                        <span>
+                            Image Upload
+                        </span>
+                    </div>
+
+                    <div>
+                        🧠
+                        <span>
+                            DNN Analysis
+                        </span>
+                    </div>
+
+                    <div>
+                        🎯
+                        <span>
+                            Confidence
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <a href="detect.html" class="card-button">
+
+                    Start AI Detection →
+
+                </a>
+
+            </div>
+
+
+            <!-- AI Assistant -->
+
+            <div class="dashboard-card assistant-card">
+
+                <div class="assistant-avatar">
+                    🤖
+                </div>
+
+                <p class="card-label">
+                    AI AGRICULTURE ASSISTANT
+                </p>
+
+                <h2>
+                    Need help with your plant?
+                </h2>
+
+                <p>
+                    After detection, your AI assistant can
+                    explain the disease and recommended
+                    solution using voice.
+                </p>
+
+
+                <button id="voiceButton" class="voice-button">
+
+                    🔊 Talk to AI Assistant
+
+                </button>
+
+                <p id="voiceStatus">
+                    Voice assistant ready
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Recent Detection -->
+
+        <section class="recent-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="card-label">
+                        ACTIVITY
+                    </p>
+
+                    <h2>
+                        Recent Detections
+                    </h2>
+
+                </div>
+
+                <a href="history.html">
+                    View All →
+                </a>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Plant
+                            </th>
+
+                            <th>
+                                Disease
+                            </th>
+
+                            <th>
+                                Confidence
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="recentDetections">
+                        <tr>
+                            <td colspan="4" style="text-align: center; padding: 28px; color: #748279; font-size: 14px;">
+                                🌱 No scans yet. Click <strong><a href="detect.html"
+                                        style="color: #7cff9b; text-decoration: none;">"New Detection"</a></strong> to
+                                analyze your first plant!
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Links -->
+
+        <section class="quick-links">
+
+            <h2>
+                Quick Access
+            </h2>
+
+
+            <div class="quick-grid">
+
+
+                <a href="detect.html">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <strong>
+                        New Detection
+                    </strong>
+
+                    <small>
+                        Analyze a plant image
+                    </small>
+
+                </a>
+
+
+                <a href="history.html">
+
+                    <span>
+                        📜
+                    </span>
+
+                    <strong>
+                        Detection History
+                    </strong>
+
+                    <small>
+                        View previous results
+                    </small>
+
+                </a>
+
+
+                <a href="about.html">
+
+                    <span>
+                        🧠
+                    </span>
+
+                    <strong>
+                        About DNN
+                    </strong>
+
+                    <small>
+                        Learn about the AI model
+                    </small>
+
+                </a>
+
+
+                <div class="quick-card contact-card" id="contactCard">
+                    <div class="contact-front">
+                        <span>💬</span>
+                        <strong>Contact</strong>
+                        <small>Get support</small>
+                    </div>
+                    <div class="contact-back">
+                        <div class="contact-title">Get in Touch</div>
+                        <hr>
+                        <div class="contact-line">Gmail: <a href="mailto:kit28.24bam039@gmail.com">kit28.24bam039@gmail.com</a></div>
+                        <div class="contact-line">Phone: <a href="tel:9751748239">+91 9751748239</a></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            © 2026 <span>AgriVision AI</span>
+            | Plant Disease Detection Using Deep Neural Networks
+        </p>
+
+    </footer>
+
+    <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

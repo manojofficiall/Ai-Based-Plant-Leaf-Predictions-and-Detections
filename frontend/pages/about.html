@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About DNN Pipeline | AgriVision AI</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="AgriVision Logo">
+                AgriVision <span>AI</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="detect.html">Detect</a>
+                <a href="about.html" class="active">About DNN</a>
+                <button id="logoutButton">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="about-page">
+
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <span class="tag">🧠 DEEP LEARNING ARCHITECTURE</span>
+            <h1>Deep Neural Network <span>Pipeline</span></h1>
+            <p>
+                Discover how AgriVision AI utilizes cutting-edge Deep Convolutional Neural Networks (MobileNetV2 / CNN)
+                to analyze leaf pathology, extract visual lesion features, and deliver instant agronomic remedies.
+            </p>
+        </section>
+
+        <!-- Visual Flowchart Section -->
+        <section class="workflow-section">
+            <div class="workflow-section-title">
+                <p class="small-title">END-TO-END AI PIPELINE</p>
+                <h2>DNN Disease Detection Workflow</h2>
+            </div>
+
+            <div class="pipeline-flow">
+                <!-- 1. Leaf Image -->
+                <div class="pipeline-card">
+                    <div class="pipeline-badge">1</div>
+                    <div class="pipeline-icon">🍃</div>
+                    <strong>Leaf Image</strong>
+                    <span>High-res RGB photo capture</span>
+                </div>
+
+                <div class="pipeline-connector">➜</div>
+
+                <!-- 2. Preprocessing -->
+                <div class="pipeline-card">
+                    <div class="pipeline-badge">2</div>
+                    <div class="pipeline-icon">⚙️</div>
+                    <strong>Preprocessing</strong>
+                    <span>224×224 resize & normalization</span>
+                </div>
+
+                <div class="pipeline-connector">➜</div>
+
+                <!-- 3. DNN Model -->
+                <div class="pipeline-card">
+                    <div class="pipeline-badge">3</div>
+                    <div class="pipeline-icon">🧠</div>
+                    <strong>DNN Model</strong>
+                    <span>Deep Neural Net Architecture</span>
+                </div>
+
+                <div class="pipeline-connector">➜</div>
+
+                <!-- 4. Feature Extraction -->
+                <div class="pipeline-card">
+                    <div class="pipeline-badge">4</div>
+                    <div class="pipeline-icon">🔬</div>
+                    <strong>Feature Extraction</strong>
+                    <span>Lesion & texture maps</span>
+                </div>
+
+                <div class="pipeline-connector">➜</div>
+
+                <!-- 5. Disease Classification -->
+                <div class="pipeline-card">
+                    <div class="pipeline-badge">5</div>
+                    <div class="pipeline-icon">🏷️</div>
+                    <strong>Disease Classification</strong>
+                    <span>Softmax multi-class output</span>
+                </div>
+
+                <div class="pipeline-connector">➜</div>
+
+                <!-- 6. Confidence Score -->
+                <div class="pipeline-card">
+                    <div class="pipeline-badge">6</div>
+                    <div class="pipeline-icon">🎯</div>
+                    <strong>Confidence Score</strong>
+                    <span>Calibrated probability %</span>
+                </div>
+
+                <div class="pipeline-connector">➜</div>
+
+                <!-- 7. Solution -->
+                <div class="pipeline-card final-step">
+                    <div class="pipeline-badge">7</div>
+                    <div class="pipeline-icon">🩺</div>
+                    <strong>Solution</strong>
+                    <span>AI care & voice guidance</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Step Breakdown Grid -->
+        <section class="steps-grid">
+
+            <div class="step-detail-card">
+                <div class="step-detail-header">
+                    <span class="num">01</span>
+                    <h3>Leaf Image Acquisition</h3>
+                </div>
+                <p>
+                    The farmer or user uploads a clear top-down photograph of an affected plant leaf (Potato or Tomato) in JPG, JPEG, or PNG format.
+                </p>
+                <span class="tech-tag">Input: RGB Image File (Max 10 MB)</span>
+            </div>
+
+            <div class="step-detail-card">
+                <div class="step-detail-header">
+                    <span class="num">02</span>
+                    <h3>Image Preprocessing</h3>
+                </div>
+                <p>
+                    Images are scaled to standard dimensions (224×224 pixels), converted to tensor representations, and normalized using standard ImageNet mean and variance channels.
+                </p>
+                <span class="tech-tag">Transform: Resize (224,224) + Normalize</span>
+            </div>
+
+            <div class="step-detail-card">
+                <div class="step-detail-header">
+                    <span class="num">03</span>
+                    <h3>DNN Deep Architecture</h3>
+                </div>
+                <p>
+                    Employs a Deep Neural Network utilizing inverted residual bottleneck layers and depthwise separable convolutions for high efficiency and mobile execution.
+                </p>
+                <span class="tech-tag">Model: MobileNetV2 Transfer Learning</span>
+            </div>
+
+            <div class="step-detail-card">
+                <div class="step-detail-header">
+                    <span class="num">04</span>
+                    <h3>Feature Extraction</h3>
+                </div>
+                <p>
+                    The convolutional layers isolate intricate visual indicators: concentric rings, water-soaked margins, fungal halos, and chlorotic tissue patterns.
+                </p>
+                <span class="tech-tag">Output: High-dimensional Feature Vector</span>
+            </div>
+
+            <div class="step-detail-card">
+                <div class="step-detail-header">
+                    <span class="num">05</span>
+                    <h3>Disease Classification</h3>
+                </div>
+                <p>
+                    Fully-connected dense classifier layers calculate the highest probability match across 6 distinct disease categories (Early Blight, Late Blight, Healthy).
+                </p>
+                <span class="tech-tag">Loss: CrossEntropyLoss + Softmax</span>
+            </div>
+
+            <div class="step-detail-card">
+                <div class="step-detail-header">
+                    <span class="num">06</span>
+                    <h3>Confidence Score</h3>
+                </div>
+                <p>
+                    Outputs a percentage confidence score (e.g. 96.8%) reflecting the model's statistical certainty based on the extracted feature characteristics.
+                </p>
+                <span class="tech-tag">Metric: 93.01% Validation Accuracy</span>
+            </div>
+
+            <div class="step-detail-card">
+                <div class="step-detail-header">
+                    <span class="num">07</span>
+                    <h3>Smart Agronomic Solution</h3>
+                </div>
+                <p>
+                    Instantly pairs the detected disease with tailored organic fungicides, cultural pruning steps, preventive soil practices, and interactive AI voice readouts.
+                </p>
+                <span class="tech-tag">Output: Biological & Chemical Action Plan</span>
+            </div>
+
+        </section>
+
+        <!-- Call to Action -->
+        <section class="about-cta">
+            <h2>Ready to Test the DNN Model? 🌱</h2>
+            <p>Upload a plant leaf image to experience real-time neural disease detection.</p>
+            <a href="detect.html" class="cta-button">🔍 Start Plant Detection</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2026 <span>AgriVision AI</span> | Plant Disease Detection Using Deep Neural Networks
+        </p>
+    </footer>
+
+    <script>
+        // Logout handler
+        const logoutButton = document.getElementById("logoutButton");
+        if (logoutButton) {
+            logoutButton.addEventListener("click", function () {
+                localStorage.removeItem("userEmail");
+                localStorage.removeItem("isLoggedIn");
+                window.location.href = "login.html";
+            });
+        }
+    </script>
+
+</body>
+
+</html>
