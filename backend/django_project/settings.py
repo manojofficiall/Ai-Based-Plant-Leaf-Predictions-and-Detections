@@ -51,7 +51,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = "https://plantleafpredictions.netlify.app"
 
 ROOT_URLCONF = 'django_project.urls'
 
