@@ -13,6 +13,8 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('admin/', admin.site.urls),
     path('api/', include('plant_detection.urls')),
+    path('detect/', views.detect, name='detect'),
+
 ]
 
 if settings.DEBUG:
