@@ -1,6 +1,3 @@
-project host link("https://plantleafpredictions.netlify.app/")
-
-
 # AgriVision AI
 
 AI-based plant disease detection system using Deep Neural Networks.
@@ -67,3 +64,4 @@ Web Speech API
 
 Author
 Manoj Official
+project host link("https://plantleafpredictions.netlify.app/")
