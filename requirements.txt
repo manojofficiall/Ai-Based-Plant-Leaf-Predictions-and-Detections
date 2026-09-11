@@ -1,6 +1,6 @@
-Django
-django-cors-headers
-Pillow
+Django>=4.2,<5.0
+django-cors-headers>=4.0.0
+Pillow>=9.5.0
 torch
 torchvision
 gunicorn
