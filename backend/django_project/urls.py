@@ -2,11 +2,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.shortcuts import redirect
+from django.http import JsonResponse
 
 def home_view(request):
-    return redirect('http://localhost:5000/')
-
+    return JsonResponse({
+        "status": "success",
+        "message": "AI Plant Disease Detection Backend is running"
+    })
 urlpatterns = [
     path('', home_view, name='home'),
     path('admin/', admin.site.urls),
