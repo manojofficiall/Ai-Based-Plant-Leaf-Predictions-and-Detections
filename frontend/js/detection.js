@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData();
             formData.append("image", selectedFile);
 
-            fetch("https://ai-based-plant-leaf-predictions-and-sz4u.onrender.com/api/detect/", {
+            fetch("https://ai-based-plant-leaf-predictions-and-0eym.onrender.com/api/detect/", {
                 method: "POST",
                 body: formData
             })
