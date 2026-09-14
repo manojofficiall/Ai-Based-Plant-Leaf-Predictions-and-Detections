@@ -37,30 +37,6 @@ project/
     ├── js/
     ├── pages/
     └── index.html
-
-
-
-The Django backend must be deployed separately using a Python hosting platform such as:
-
-Render
-Railway
-PythonAnywhere
-After deploying the backend, update the frontend API URL to use the public backend URL.
-
-Technologies Used
-HTML
-CSS
-JavaScript
-Node.js
-Django
-Django REST Framework
-Python
-PyTorch
-NumPy
-Pillow
-Google OAuth
-Web Speech API
-
 Author
 Manoj Official
 
