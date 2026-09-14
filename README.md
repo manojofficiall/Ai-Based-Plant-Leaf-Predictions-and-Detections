@@ -38,8 +38,7 @@ project/
     ├── pages/
     └── index.html
 
-Deployment
-The frontend can be deployed on Netlify.
+
 
 The Django backend must be deployed separately using a Python hosting platform such as:
 
