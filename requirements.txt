@@ -1,6 +1,4 @@
 django-cors-headers>=4.0.0
 Pillow>=9.5.0
-torch
-tensorflow>=2.12.0
-torchvision
+tensorflow-cpu>=2.12.0
 gunicorn
