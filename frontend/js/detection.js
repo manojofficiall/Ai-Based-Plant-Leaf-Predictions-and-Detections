@@ -184,8 +184,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData();
             formData.append("image", selectedFile);
 
-            fetch("https://ai-based-plant-leaf-predictions-and-0eym.onrender.com/api/detect/", {
-                method: "POST",
+            fetch("fetch("https://ai-based-plant-leaf-predictions-and-detections-production.up.railway.app/api/detect/", {
+    method: "POST",
+    body: formData
+})", {
+                method: "POST",    
                 body: formData
             })
             .then(res => {
